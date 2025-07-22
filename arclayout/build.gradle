@@ -1,11 +1,13 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion project.sdk
+    compileSdk 36
+    namespace "com.github.florent37.arclayout"
 
     defaultConfig {
-        minSdkVersion project.minSdk
-        targetSdkVersion project.sdk
+        minSdk 23
+        targetSdk 36
         versionCode 1
         versionName "1.0"
 
@@ -16,40 +18,53 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+
+        checkReleaseBuilds false
+        abortOnError false
+        //abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "androidx.appcompat:appcompat:$project.supportVersion"
+//    implementation "androidx.appcompat:appcompat:$project.supportVersion"
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create("release", MavenPublication) {
+                // Use the correct component name: "release" only exists if you applied `com.android.library`
+                from components.findByName("release") ?: components.findByName("default")
+
+                groupId = 'com.github.Ram-Kuma-wat'
+                artifactId = 'arclayout'
+                version = '1.0.5'
+            }
+        }
+    }
 }
 
 
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'ArcLayout'
-    orgName = 'florent37'
+/*
 
-    publishedGroupId = 'com.github.florent37'
-    libraryName = 'ArcLayout'
-    artifact = 'arclayout'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
 
-    libraryDescription = 'ArcLayout'
-
-    siteUrl = 'https://github.com/florent37/ArcLayout'
-    gitUrl = 'https://github.com/florent37/ArcLayout.git'
-
-    libraryVersion = rootProject.ext.libraryVersion
-
-    developerId = 'florent37'
-    developerName = 'Florent Champigny'
-    developerEmail = 'champigny.florent@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+                groupId = 'com.github.Ram-Kuma-wat'
+                artifactId = 'arclayout'
+                version = '1.0.5'
+            }
+        }
+    }
 }
-
-if (project.rootProject.file('local.properties').exists()) {
-    apply from: rootProject.file('gradle/install-v1.gradle')
-    apply from: rootProject.file('gradle/bintray-android-v1.gradle')
-}
+*/
