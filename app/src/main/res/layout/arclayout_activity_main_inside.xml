@@ -7,15 +7,14 @@
     android:orientation="vertical"
     >
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <RelativeLayout
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
 
-        <com.github.florent37.arclayout.ArcLayout
+        <com.github.cw.arclayout.ArcLayout
             android:id="@+id/diagonalLayout"
             android:layout_width="match_parent"
             android:layout_height="340dp"
@@ -34,7 +33,7 @@
                 android:src="@drawable/arclayout_rogue"
                 />
 
-        </com.github.florent37.arclayout.ArcLayout>
+        </com.github.cw.arclayout.ArcLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"

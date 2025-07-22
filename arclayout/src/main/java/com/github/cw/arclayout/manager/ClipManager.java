@@ -1,4 +1,4 @@
-package com.github.florent37.arclayout.manager;
+package com.github.cw.arclayout.manager;
 
 import android.graphics.Paint;
 import android.graphics.Path;

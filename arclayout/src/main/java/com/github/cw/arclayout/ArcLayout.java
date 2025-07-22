@@ -1,4 +1,4 @@
-package com.github.florent37.arclayout;
+package com.github.cw.arclayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 
-import com.github.florent37.arclayout.manager.ClipPathManager;
+import com.github.cw.arclayout.manager.ClipPathManager;
 
 public class ArcLayout extends ShapeOfView {
 

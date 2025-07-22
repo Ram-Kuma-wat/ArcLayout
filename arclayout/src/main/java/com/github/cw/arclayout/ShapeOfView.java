@@ -1,9 +1,8 @@
-package com.github.florent37.arclayout;
+package com.github.cw.arclayout;
 
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -24,8 +23,8 @@ import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.widget.FrameLayout;
 
-import com.github.florent37.arclayout.manager.ClipManager;
-import com.github.florent37.arclayout.manager.ClipPathManager;
+import com.github.cw.arclayout.manager.ClipManager;
+import com.github.cw.arclayout.manager.ClipPathManager;
 
 public abstract class ShapeOfView extends FrameLayout {
 
